@@ -19,14 +19,15 @@ export class AppComponent implements AfterContentInit {
     private resolver: ComponentFactoryResolver
   ) {}
 
-  loginUser(user: User) {
-    console.log('Login', user );
-  }
-
   ngAfterContentInit() {
     const authFormFactory = this.resolver.resolveComponentFactory(AuthFormComponent);
     const component = this.entry.createComponent(authFormFactory);
     console.log(component.instance);
     component.instance.title = 'Create account';
+    component.instance.submitted.subscribe(this.loginUser);
+  }
+
+  loginUser(user: User) {
+    console.log('Login', user);
   }
 }
