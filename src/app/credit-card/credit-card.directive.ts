@@ -5,6 +5,8 @@ import { Directive, ElementRef } from '@angular/core';
 })
 export class CreditCardDirective {
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef) {
+      console.log(this.element);
+  }
 
 }

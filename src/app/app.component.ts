@@ -4,15 +4,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-root',
   changeDetection: ChangeDetectionStrategy.Default,
   template: `
-    <div>
-      <button (click)="addProp()">Add property</button>
-      <button (click)="changeUser()">Change user object</button>
-      <button (click)="changeName()">Change name property</button>
-      <div class="users">
-        <example-one [user]="user"></example-one>
-        <example-two [user]="user"></example-two>
-      </div>
-    </div>
+    <app-credit-card></app-credit-card>
   `
 })
 export class AppComponent {
