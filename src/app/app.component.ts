@@ -5,36 +5,45 @@ import { AuthFormComponent } from './auth-form//auth-form.component';
 import { User } from './auth-form/auth-form.interface';
 
 @Component({
-  selector: 'app-root',
-  template: `
+    selector: 'app-root',
+    template: `
     <div>
     <button (click)="destoryComponent()">
       Destory
+    </button>
+    <button (click)="MoveComponent()">
+      Move Component
     </button>
       <div #entry></div>
     </div>
   `
 })
 export class AppComponent implements AfterContentInit {
-  @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;
-  component: ComponentRef<AuthFormComponent>;
-  constructor(
-    private resolver: ComponentFactoryResolver
-  ) {}
+    @ViewChild('entry', { read: ViewContainerRef }) entry: ViewContainerRef;
+    component: ComponentRef<AuthFormComponent>;
+    constructor(
+        private resolver: ComponentFactoryResolver
+    ) { }
 
-  ngAfterContentInit() {
-    const authFormFactory = this.resolver.resolveComponentFactory(AuthFormComponent);
-    this.component = this.entry.createComponent(authFormFactory);
-    console.log(this.component.instance);
-    this.component.instance.title = 'Create account';
-    this.component.instance.submitted.subscribe(this.loginUser);
-  }
+    ngAfterContentInit() {
+        const authFormFactory = this.resolver.resolveComponentFactory(AuthFormComponent);
+        this.entry.createComponent(authFormFactory);
 
-  loginUser(user: User) {
-    console.log('Login', user);
-  }
+        this.component = this.entry.createComponent(authFormFactory, 0);
+        console.log(this.component.instance);
+        this.component.instance.title = 'Create account';
+        this.component.instance.submitted.subscribe(this.loginUser);
+    }
 
-  destoryComponent() {
-    this.component.destroy();
-  }
+    loginUser(user: User) {
+        console.log('Login', user);
+    }
+
+    destoryComponent() {
+        this.component.destroy();
+    }
+
+    MoveComponent() {
+      this.entry.move(this.component.hostView, 1);
+    }
 }
