@@ -6,6 +6,7 @@ import { ExampleOneComponent } from './one/one.component';
 import { ExampleTwoComponent } from './two/two.component';
 import { CreditCardComponent } from './credit-card/credit-card.component';
 import { CreditCardDirective } from './credit-card/credit-card.directive';
+import { TooltipDirective } from './tooltip/tooltip.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CreditCardDirective } from './credit-card/credit-card.directive';
     ExampleOneComponent,
     ExampleTwoComponent,
     CreditCardComponent,
-    CreditCardDirective
+    CreditCardDirective,
+    TooltipDirective
   ],
   imports: [
     BrowserModule
