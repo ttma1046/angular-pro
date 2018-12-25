@@ -15,7 +15,7 @@ export class CreditCardDirective {
             trimmed = trimmed.substr(0, 16);
         }
 
-        let numbers  = [];
+        const numbers  = [];
         for (let i = 0; i < trimmed.length; i += 4) {
             numbers.push(trimmed.substr(i, 4));
         }
@@ -30,5 +30,4 @@ export class CreditCardDirective {
 
     constructor(private element: ElementRef) {
     }
-
 }

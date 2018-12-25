@@ -7,6 +7,8 @@ import { ExampleTwoComponent } from './two/two.component';
 import { CreditCardComponent } from './credit-card/credit-card.component';
 import { CreditCardDirective } from './credit-card/credit-card.directive';
 import { TooltipDirective } from './tooltip/tooltip.directive';
+import { MyForDirective } from './my-for/my-for.directive';
+import { FileSizePipe } from './filesize.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { TooltipDirective } from './tooltip/tooltip.directive';
     ExampleTwoComponent,
     CreditCardComponent,
     CreditCardDirective,
-    TooltipDirective
+    TooltipDirective,
+    MyForDirective,
+    FileSizePipe
   ],
   imports: [
     BrowserModule
