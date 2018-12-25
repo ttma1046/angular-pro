@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { StockInventoryModule } from './stock-inventory/stock-inventory.module';
 import { AppComponent } from './app.component';
 import { ExampleOneComponent } from './one/one.component';
 import { ExampleTwoComponent } from './two/two.component';
@@ -22,7 +22,8 @@ import { FileSizePipe } from './filesize.pipe';
     FileSizePipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StockInventoryModule
   ],
   bootstrap: [
     AppComponent
